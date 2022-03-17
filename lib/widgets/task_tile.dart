@@ -4,9 +4,9 @@ class TaskTile extends StatelessWidget {
 
   final bool isChecked;
   final String taskTitle;
-  final Function checkBoxCallBack;
+  final void Function(bool?) checkboxCallback;
 
-  TaskTile({required this.isChecked,required this.taskTitle});
+  TaskTile({required this.isChecked,required this.taskTitle, required this.checkboxCallback});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class TaskTile extends StatelessWidget {
       trailing: Checkbox(
       value: isChecked,
       activeColor: Colors.lightBlueAccent,
-      onChanged: (bool? value) {  },
+      onChanged: checkboxCallback,
     ));
   }
 }
